@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+// The main class of the application
+def mainClassName = 'com.smarthome.HelloWorld'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'com.sun.jersey:jersey-bundle:1.18'
+
+	compile 'org.apache.httpcomponents:httpclient:4.0-alpha4'
+	compile 'org.projectlombok:lombok:1.12.2'
+
+}
+
+task(runMain, dependsOn: 'classes', type: JavaExec) {
+	main = 'com.smarthome.HelloWorld'
+	classpath = sourceSets.main.runtimeClasspath
+	args 'Smart Home'
+}
