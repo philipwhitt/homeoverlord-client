@@ -1,46 +1,24 @@
 package com.smarthome.api;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
- 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+import com.smarthome.Config;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
 
 public class Service {
 
-	private final String USER_AGENT = "Mozilla/5.0";
+    protected WebResource resource;
+    protected String apiKey;
 
-	private String host = "http://smarthome.corn/";
+    public Service() {
+        apiKey = Config.apiKey;
 
-	public void sendGet() throws Exception {
-		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet(host + "api/house");
+        ClientConfig clientConfig = new DefaultClientConfig();
+        clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
 
-		// add request header
-		request.addHeader("User-Agent", USER_AGENT);
-
-		HttpResponse response = client.execute(request);
-
-		System.out.println("\nSending 'GET' request to URL : " + host);
-		System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
-
-		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-
-		StringBuffer result = new StringBuffer();
-		String line = "";
-		while ((line = rd.readLine()) != null) {
-			result.append(line);
-		}
-
-		System.out.println(result.toString());
-	}
+        resource = Client.create(clientConfig).resource("http://"+Config.host);
+    }
 
 }
