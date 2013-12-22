@@ -1,6 +1,7 @@
 package com.smarthome.api.temperature;
 
 import com.smarthome.api.Service;
+import com.smarthome.api.location.Location;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import javax.ws.rs.core.MultivaluedMap;
@@ -18,8 +19,19 @@ public class TemperatureService extends Service {
         MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
         queryParams.add("fahrenheit", farenhit);
 
-        String resp = resource.path(RESOURCE).queryParams(queryParams).put(String.class);
-        System.out.println(resp);
+        doPut(queryParams);
+    }
+
+    public void put(String farenhit, Location location) {
+        MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+        queryParams.add("fahrenheit", farenhit);
+        queryParams.add("locationId", location.getId());
+
+        doPut(queryParams);
+    }
+
+    private void doPut(MultivaluedMap<String, String> queryParams) {
+        resource.path(RESOURCE).queryParams(queryParams).put();
     }
 
 }

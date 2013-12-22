@@ -5,7 +5,7 @@ apply plugin: 'idea'
 def mainClassName = 'com.smarthome.HelloWorld'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
@@ -15,7 +15,7 @@ dependencies {
 }
 
 task(runMain, dependsOn: 'classes', type: JavaExec) {
-	main = 'com.smarthome.HelloWorld'
-	classpath = sourceSets.main.runtimeClasspath
-	args 'Smart Home'
+    main = 'com.smarthome.HelloWorld'
+    classpath = sourceSets.main.runtimeClasspath
+    args 'Smart Home'
 }
