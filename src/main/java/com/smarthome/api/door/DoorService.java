@@ -13,7 +13,7 @@ public class DoorService extends Service {
         MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
         queryParams.add("description", description);
 
-        String resp = resource.path(RESOURCE).queryParams(queryParams).put(String.class);
+        String resp = resource.path(RESOURCE).queryParams(queryParams).header("Authorization", apiKey).put(String.class);
         System.out.println(resp);
     }
 
@@ -21,7 +21,7 @@ public class DoorService extends Service {
         MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
         queryParams.add("description", description);
 
-        String resp = resource.path(RESOURCE).queryParams(queryParams).delete(String.class);
+        String resp = resource.path(RESOURCE).queryParams(queryParams).header("Authorization", apiKey).delete(String.class);
         System.out.println(resp);
     }
 
@@ -30,7 +30,7 @@ public class DoorService extends Service {
         queryParams.add("locationId", location.getId());
         queryParams.add("description", description);
 
-        String resp = resource.path(RESOURCE).queryParams(queryParams).put(String.class);
+        String resp = resource.path(RESOURCE).queryParams(queryParams).header("Authorization", apiKey).put(String.class);
         System.out.println(resp);
     }
 
@@ -39,7 +39,7 @@ public class DoorService extends Service {
         queryParams.add("locationId", location.getId());
         queryParams.add("description", description);
 
-        String resp = resource.path(RESOURCE).queryParams(queryParams).delete(String.class);
+        String resp = resource.path(RESOURCE).queryParams(queryParams).header("Authorization", apiKey).delete(String.class);
         System.out.println(resp);
     }
 

@@ -12,7 +12,7 @@ public class TemperatureService extends Service {
     private static final String RESOURCE = "/api/temperature";
 
     public List<Temperature> get() {
-        return resource.path(RESOURCE).get(TemperatureContainer.class).getContent();
+        return resource.path(RESOURCE).header("Authorization", apiKey).get(TemperatureContainer.class).getContent();
     }
 
     public void put(String farenhit) {
@@ -31,7 +31,7 @@ public class TemperatureService extends Service {
     }
 
     private void doPut(MultivaluedMap<String, String> queryParams) {
-        resource.path(RESOURCE).queryParams(queryParams).put();
+        resource.path(RESOURCE).queryParams(queryParams).header("Authorization", apiKey).put();
     }
 
 }

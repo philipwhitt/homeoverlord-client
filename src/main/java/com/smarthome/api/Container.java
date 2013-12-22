@@ -5,9 +5,9 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Data
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown=true)
-@Data
 public class Container {
 
     private int status;
