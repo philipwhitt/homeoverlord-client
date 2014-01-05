@@ -1,2 +1,2 @@
-smarthouse-toolkit
-==================
+smarthouse-client
+=================
