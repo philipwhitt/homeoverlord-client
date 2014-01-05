@@ -1,7 +1,7 @@
-package com.smarthome.api.temperature;
+package com.smarthome.client.temperature;
 
-import com.smarthome.api.Service;
-import com.smarthome.api.location.Location;
+import com.smarthome.client.Service;
+import com.smarthome.client.location.Location;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import javax.ws.rs.core.MultivaluedMap;
@@ -10,6 +10,10 @@ import java.util.List;
 public class TemperatureService extends Service {
 
     private static final String RESOURCE = "/api/temperature";
+
+    public TemperatureService(String apiKey) {
+        super(apiKey);
+    }
 
     public List<Temperature> get() {
         return resource.path(RESOURCE).header("Authorization", apiKey).get(TemperatureContainer.class).getContent();

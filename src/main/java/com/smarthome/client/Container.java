@@ -1,4 +1,4 @@
-package com.smarthome.api.temperature;
+package com.smarthome.client;
 
 import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
@@ -8,10 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Data
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Temperature {
+public class Container {
 
-    private String id;
-    private String temperature;
-    private String created;
-
+    private int status;
+    protected Object content;
 }

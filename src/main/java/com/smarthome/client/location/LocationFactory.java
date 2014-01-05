@@ -1,4 +1,4 @@
-package com.smarthome.api.location;
+package com.smarthome.client.location;
 
 import java.util.HashMap;
 
@@ -8,15 +8,15 @@ public class LocationFactory {
 
     private HashMap<String, Location> map = new HashMap<>();
 
-    public static LocationFactory get() {
+    public static LocationFactory get(String apiKey) {
         if (instance == null) {
-            instance = new LocationFactory();
+            instance = new LocationFactory(apiKey);
         }
         return instance;
     }
 
-    private LocationFactory() {
-        LocationService locationService = new LocationService();
+    private LocationFactory(String apiKey) {
+        LocationService locationService = new LocationService(apiKey);
         for (Location location : locationService.get()) {
             map.put(location.getId(), location);
         }

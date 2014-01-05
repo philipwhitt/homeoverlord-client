@@ -1,4 +1,4 @@
-package com.smarthome.api.location;
+package com.smarthome.client.location;
 
 import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;

@@ -1,6 +1,6 @@
-package com.smarthome.api.location;
+package com.smarthome.client.location;
 
-import com.smarthome.api.Container;
+import com.smarthome.client.Container;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;

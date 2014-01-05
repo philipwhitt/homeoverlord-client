@@ -1,13 +1,17 @@
-package com.smarthome.api.door;
+package com.smarthome.client.door;
 
-import com.smarthome.api.Service;
-import com.smarthome.api.location.Location;
+import com.smarthome.client.Service;
+import com.smarthome.client.location.Location;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 import javax.ws.rs.core.MultivaluedMap;
 
 public class DoorService extends Service {
 
     private static final String RESOURCE = "/api/door";
+
+    public DoorService(String apiKey) {
+        super(apiKey);
+    }
 
     public void open(String description) {
         MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();

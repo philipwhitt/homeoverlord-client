@@ -1,4 +1,4 @@
-package com.smarthome.api.house;
+package com.smarthome.client.house;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;

@@ -1,18 +1,18 @@
-package com.smarthome.api.house;
+package com.smarthome.client.temperature;
 
-import com.smarthome.api.Container;
+import com.smarthome.client.Container;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 @Data
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown=true)
 @EqualsAndHashCode(callSuper=true)
-public class HouseContainer extends Container {
+public class TemperatureContainer extends Container {
 
-    protected House content;
+    protected List<Temperature> content;
 
 }

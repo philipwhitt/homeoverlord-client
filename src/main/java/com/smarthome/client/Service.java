@@ -1,6 +1,5 @@
-package com.smarthome.api;
+package com.smarthome.client;
 
-import com.smarthome.Config;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
@@ -12,13 +11,13 @@ public class Service {
     protected WebResource resource;
     protected String apiKey;
 
-    public Service() {
-        apiKey = Config.apiKey;
+    public Service(String apiKey) {
+        this.apiKey = apiKey;
 
         ClientConfig clientConfig = new DefaultClientConfig();
         clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
 
-        resource = Client.create(clientConfig).resource("http://"+Config.host);
+        resource = Client.create(clientConfig).resource("http://app.homeoverlord.com");
     }
 
 }
