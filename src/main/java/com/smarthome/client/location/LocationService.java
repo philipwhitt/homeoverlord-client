@@ -13,7 +13,7 @@ public class LocationService extends Service {
     }
 
     public List<Location> get() {
-        return resource.path(RESOURCE).header("Authorization", apiKey).get(LocationContainer.class).getContent();
+        return resource.path(RESOURCE).header("X-Authorization", apiKey).get(LocationContainer.class).getContent();
     }
 
 }

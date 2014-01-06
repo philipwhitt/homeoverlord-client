@@ -12,5 +12,6 @@ public class House {
     private String id;
     private String name;
     private String apiKey;
+    private Boolean isAlarmActivated;
 
 }

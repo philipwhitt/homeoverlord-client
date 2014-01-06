@@ -11,7 +11,7 @@ public class HouseService extends Service {
     }
 
     public House get() {
-        return resource.path(RESOURCE).header("Authorization", apiKey).get(HouseContainer.class).getContent();
+        return resource.path(RESOURCE).header("X-Authorization", apiKey).get(HouseContainer.class).getContent();
 	}
 
 }
