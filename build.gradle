@@ -10,4 +10,11 @@ dependencies {
     compile 'com.sun.jersey:jersey-bundle:1.18'
     compile 'com.sun.jersey:jersey-json:1.18'
     compile 'org.projectlombok:lombok:1.12.2'
+
+    testCompile 'org.codehaus.groovy:groovy-all:2.1.6'
+    testCompile 'junit:junit:4.11'
+    testCompile 'com.sun.jersey:jersey-bundle:1.18'
+    testCompile 'com.sun.jersey:jersey-json:1.18'
+    testCompile 'org.projectlombok:lombok:1.12.2'
+
 }
