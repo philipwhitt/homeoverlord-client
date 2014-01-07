@@ -5,7 +5,7 @@ import org.junit.Test;
 
 class HouseTest {
 
-    private House house;
+    House house;
 
     @Before
     public void setup() {
