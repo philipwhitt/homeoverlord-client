@@ -9,17 +9,20 @@ class HouseTest {
 
     @Before
     public void setup() {
-        house = House.builder()
-            .id("1")
-            .isAlarmActivated(true)
-            .apiKey("c24a03360f29a0df22cd4c18cb184f0f")
-            .name("Test")
-            .build();
+        house = new House();
+        house.setId("1");
+        house.setIsAlarmActivated(false);
+        house.setApiKey("c24a03360f29a0df22cd4c18cb184f0f");
+        house.setName("14401 Weldon");
     }
 
     @Test
     def void "Get should return house"() {
-        assert true;
+        HouseService houseService = new HouseService(house.getApiKey());
+
+        House houseB = houseService.get();
+
+        assert houseB == house;
     }
 
 }
